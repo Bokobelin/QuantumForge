@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
@@ -12,30 +14,31 @@ namespace QuantumForge
     {
         public static List<MonoBehaviour> instances = new List<MonoBehaviour>();
 
-
-        // Dictionary to store the fields
+        // ObservableCollection to store the fields
         [XmlIgnore]
-        public Dictionary<string, object> Fields { get; set; } = new Dictionary<string, object>();
+        public ObservableCollection<PropertyViewModel> Fields { get; set; } = new ObservableCollection<PropertyViewModel>();
 
         // Method to add or update a field
         public void SetField(string fieldName, object value)
         {
-            if (Fields.ContainsKey(fieldName))
+            var existingProperty = Fields.FirstOrDefault(p => p.Key == fieldName);
+            if (existingProperty != null)
             {
-                Fields[fieldName] = value;
+                existingProperty.Value = value;
             }
             else
             {
-                Fields.Add(fieldName, value);
+                Fields.Add(new PropertyViewModel { Key = fieldName, Value = value });
             }
         }
 
         // Method to retrieve a field
         public object GetField(string fieldName)
         {
-            if (Fields.ContainsKey(fieldName))
+            var field = Fields.FirstOrDefault(p => p.Key == fieldName);
+            if (field != null)
             {
-                return Fields[fieldName];
+                return field.Value;
             }
             else
             {
@@ -43,7 +46,7 @@ namespace QuantumForge
             }
         }
 
-        // Method to populate fields dictionary with public fields
+        // Method to populate fields ObservableCollection with public fields
         public virtual void PopulateFields()
         {
             Type type = this.GetType();
@@ -51,7 +54,7 @@ namespace QuantumForge
 
             foreach (FieldInfo field in publicFields)
             {
-                Fields[field.Name] = field.GetValue(this);
+                Fields.Add(new PropertyViewModel { Key = field.Name, Value = field.GetValue(this) });
             }
         }
 
@@ -108,7 +111,6 @@ namespace QuantumForge
                 instance.Draw();
             }
         }
-
 
         public static void AwakeAll()
         {

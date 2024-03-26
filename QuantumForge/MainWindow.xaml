@@ -12,9 +12,6 @@
         WindowState="Maximized"
         Style="{StaticResource QFWindowsStyle}"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Window.Resources>
-        <dictionaries:EditorDecorator x:Key="EditorDecorator" />
-    </Window.Resources>
     <Grid>
         <Button x:Name="PlayButton" Width="50" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Click="LaunchGame">
             <TextBlock Text=">" FontSize="23" />

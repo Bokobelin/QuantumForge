@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:QuantumForge"
              xmlns:dictionaries="clr-namespace:QuantumForge.Engine.Utils.Dictionnaries"
-             StartupUri="MainWindow.xaml"
              mc:Ignorable="d"
              ShutdownMode="OnMainWindowClose">
     <Application.Resources>

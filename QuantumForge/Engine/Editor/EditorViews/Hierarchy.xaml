@@ -17,9 +17,9 @@
         </Grid.RowDefinitions>
 
         <!-- Your button(s) or other elements -->
-        <Button Content="Add scene" Width="96" VerticalAlignment="Center" Focusable="False" HorizontalAlignment="Left" Margin="20,0,0,0" Click="AddScene" Grid.Row="0" />
-        <Button Content="Add GameObjects" Click="OnAddGameObjectsClick" Width="150" VerticalAlignment="Center" Focusable="False" HorizontalAlignment="Left" Margin="150,0,0,0" Grid.Row="0"/>
-        <Button Content="Save project" Click="SaveProject" Focusable="False" HorizontalAlignment="Right" />
+        <Button Content="Add scene" Width="96" VerticalAlignment="Center" Focusable="False" HorizontalAlignment="Left" Margin="20,0,0,0" Click="AddScene" Grid.Row="0" Style="{StaticResource BasicButton}" />
+        <Button Content="Add GameObjects" Click="OnAddGameObjectsClick" Width="150" VerticalAlignment="Center" Focusable="False" HorizontalAlignment="Left" Margin="150,0,0,0" Grid.Row="0" Style="{StaticResource BasicButton}" />
+        <Button Content="Save project" Click="SaveProject" Focusable="False" HorizontalAlignment="Right" Style="{StaticResource BasicButton}" />
 
         <!-- ScrollViewer for scenes on the left -->
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Width="600" HorizontalAlignment="Left">
@@ -31,7 +31,7 @@
                             <TextBlock Text="{Binding Name}" />
 
                             <!-- Button to remove the scene -->
-                            <Button Content="Remove" Command="{Binding DataContext.RemoveSceneCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Margin="5,0,0,0"/>
+                            <Button Content="Remove" Command="{Binding DataContext.RemoveSceneCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Margin="5,0,0,0" Style="{StaticResource BasicButton}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -45,10 +45,10 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <!-- RadioButton for entity selection -->
-                            <TextBlock x:Name="enittyName" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock x:Name="enittyName" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LightTextBlockStyle}" />
 
                             <!-- Button to remove the entity -->
-                            <Button Content="Remove" Command="{Binding DataContext.RemoveEntityCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Margin="5,0,0,0"/>
+                            <Button Content="Remove" Command="{Binding DataContext.RemoveEntityCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Margin="5,0,0,0" Style="{StaticResource BasicButton}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

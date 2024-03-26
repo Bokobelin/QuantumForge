@@ -80,10 +80,10 @@
                     </TextBlock>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="{StaticResource Editor.Window.GrayBrush4}" />
+                            <Setter Property="Foreground" Value="{StaticResource Editor.Window.GrayBrush4}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="White" />
+                            <Setter Property="Foreground" Value="White" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -98,6 +98,14 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type TextBlock}" x:Key="LightTextBlockStyle">
+        <Setter Property="Foreground" Value="{StaticResource Editor.FontBrush}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
+    
+    <!--OTHER STYLES-->
 
 
     <Style x:Key="QFWindowsStyle" TargetType="{x:Type Window}">
@@ -107,7 +115,7 @@
             <Setter.Value>
                 <WindowChrome CornerRadius="0" 
                               ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}"
-                              GlassFrameThickness="0" CaptionHeight="20"
+                              GlassFrameThickness="0" CaptionHeight="0"
                               NonClientFrameEdges="None"
                               UseAeroCaptionButtons="False" />
             </Setter.Value>
@@ -138,7 +146,7 @@
                                     <Style TargetType="Button" BasedOn="{StaticResource BasicButton}">
                                         <Setter Property="Width" Value="24" />
                                         <Setter Property="Height" Value="20" />
-                                        <Setter Property="Margin" Value="10,0,5,10" />
+                                        <Setter Property="Margin" Value="10,-15,5,10" />
                                         <Setter Property="SnapsToDevicePixels" Value="True" />
                                         <!--<Setter Property="HorizontalAlignment" Value="Right" />-->
                                         <Setter Property="DockPanel.Dock" Value="Top" />
@@ -197,7 +205,7 @@
             <Setter.Value>
                 <WindowChrome CornerRadius="0" 
                           ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}"
-                          GlassFrameThickness="0" CaptionHeight="20"
+                          GlassFrameThickness="0" CaptionHeight="0"
                           NonClientFrameEdges="None"
                           UseAeroCaptionButtons="False" />
             </Setter.Value>
@@ -228,7 +236,7 @@
                                     <Style TargetType="Button" BasedOn="{StaticResource BasicButton}">
                                         <Setter Property="Width" Value="24" />
                                         <Setter Property="Height" Value="20" />
-                                        <Setter Property="Margin" Value="10,0,5,10" />
+                                        <Setter Property="Margin" Value="10,-15,5,10" />
                                         <Setter Property="SnapsToDevicePixels" Value="True" />
                                         <!--<Setter Property="HorizontalAlignment" Value="Right" />-->
                                         <Setter Property="DockPanel.Dock" Value="Top" />

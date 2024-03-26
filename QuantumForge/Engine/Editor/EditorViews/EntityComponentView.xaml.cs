@@ -78,7 +78,7 @@ namespace QuantumForge.Engine.Editor.EditorViews
                         }
                     }
 
-                    listBox.Items.Add(new { Name = component.Name, Fields = fields });
+                    listBox.Items.Add(new MonoBehaviour(){ Name = component.Name, Fields = fields });
 
                     // Hook up the TextBox.TextChanged event for each TextBox in the ItemsControl
                     foreach (PropertyViewModel property in fields)
@@ -93,7 +93,7 @@ namespace QuantumForge.Engine.Editor.EditorViews
                         var textBox = new TextBox();
                         textBox.TextChanged += (sender, e) =>
                         {
-                            Logger.LogInfo("TextBox text changed !");
+                            //Logger.LogInfo("TextBox text changed !");
                             if (int.TryParse(textBox.Text, out int value))
                             {
                                 // Get the PropertyViewModel object bound to this TextBox
@@ -177,7 +177,7 @@ namespace QuantumForge.Engine.Editor.EditorViews
 
         private void AddComponentButton_Click(object sender, RoutedEventArgs e)
         {
-
+            SelectedEntity?.AddComponent(new Transform());
         }
     }
 }

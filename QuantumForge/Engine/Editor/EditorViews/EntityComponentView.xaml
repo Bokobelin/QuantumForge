@@ -14,24 +14,24 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource LightTextBlockStyle}" />
                                 <ItemsControl ItemsSource="{Binding Fields}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding Key}" />
+                                                <TextBlock Text="{Binding Key}" Style="{StaticResource LightTextBlockStyle}" />
                                                 <TextBox Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
-                                <Button Content="Remove" Margin="10,0,0,0" Click="RemoveComponentButton_Click" />
+                                <Button Content="Remove" Margin="10,0,0,0" Click="RemoveComponentButton_Click" Style="{StaticResource BasicButton}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <Button Content="Add component" Click="AddComponentButton_Click" Margin="0,30,0,0" Width="100" Height="30" AutomationProperties.AccessKey="N" />
+                <Button Content="Add component" Click="AddComponentButton_Click" Margin="0,30,0,0" Width="100" Height="30" Style="{StaticResource BasicButton}" />
 
             </StackPanel>
         </ScrollViewer>

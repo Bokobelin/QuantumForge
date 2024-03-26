@@ -9,7 +9,6 @@ public static class Program
 {
     public static StylesGetter app;
     public static MainWindow window = new MainWindow();
-    public static LoadingScreen loadScreen;
     public static Thread gameThread;
 
     public static string VERSION = "0.1.0";
@@ -33,7 +32,6 @@ public static class Program
         // Create the WPF application and main window
         app = new();
         window = new MainWindow();
-        loadScreen = new LoadingScreen();
 
         // Start the game loop in a separate thread
         /*
@@ -44,8 +42,9 @@ public static class Program
         // Run the WPF application and show the main window
         try
         {
-            Application.Current.MainWindow = window;
-            Application.Current.Run();
+            //Application.Current.MainWindow = window;
+            Application.Current.Run(window);
+            Logger.Initialize(window);
         }
         catch(Exception ex)
         {
